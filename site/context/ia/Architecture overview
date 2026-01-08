@@ -1,0 +1,859 @@
+# THERAPEUTIC JITAI PLATFORM ARCHITECTURE OVERVIEW
+
+## Executive Summary
+
+This document outlines the architecture of a comprehensive therapeutic Just-In-Time Adaptive Intervention (JITAI) platform designed for personalized mental health and wellbeing support. The platform implements governed guidance systems with clinical safety protocols, taxonomy-driven content delivery, and real-time adaptive interventions.
+
+**Platform Name:** LUMA (Learning Universal Mental Architecture)
+**Architecture Pattern:** JITAI with Clinical Contracts and Governed Guidance
+**Deployment:** Multi-tenant SaaS with organization-scoped operations
+
+---
+
+## Core Architecture Principles
+
+### 1. Governed Guidance System
+- **Clinical Contracts:** All interventions require clinical validation and safety approval
+- **Taxonomy Enforcement:** 20 schemas → 200 families → 2400 mindblocks structure
+- **Safety Gates:** Multi-layer validation prevents harmful interventions
+- **Audit Trails:** Complete clinical decision tracking and accountability
+
+### 2. JITAI Orchestration
+- **Real-time Adaptation:** Continuous state monitoring with immediate intervention triggering
+- **Personalized Delivery:** User-specific content based on state, preferences, and clinical needs
+- **Contextual Intelligence:** Environmental and temporal factors influence intervention selection
+- **Clinical Decision Support:** AI-assisted intervention recommendations with human oversight
+
+### 3. Multi-tenant Security
+- **Organization Scoping:** Complete data isolation between organizations
+- **Professional Oversight:** Clinician validation and supervision of all interventions
+- **Patient Privacy:** HIPAA/GDPR compliant data handling with end-to-end encryption
+- **Access Control:** Role-based permissions with clinical safety validation
+
+---
+
+## System Components
+
+### Core Data Models
+
+#### Patients (`patients.ts`)
+- **Clinical Profiles:** Comprehensive patient information with medical history
+- **Risk Assessment:** Dynamic risk scoring with automated monitoring
+- **Engagement Metrics:** Usage patterns and therapeutic progress tracking
+- **Emergency Contacts:** Crisis management and support network integration
+- **Preferences:** Personalization settings and content preferences
+
+#### Organizations (`organizations.ts`)
+- **Multi-tenant Operations:** Organization-scoped data and user management
+- **Compliance Management:** Regulatory requirements and audit tracking
+- **Governance Settings:** Clinical protocols and safety configurations
+- **Statistics & Analytics:** Organization-wide performance metrics
+- **Audit Logs:** Complete activity tracking for compliance
+
+#### Professionals (`professionals.ts`)
+- **Credential Management:** Clinical qualifications and certifications
+- **Availability Scheduling:** Dynamic availability and appointment management
+- **Patient Assignments:** Care team coordination and responsibility tracking
+- **Secure Messaging:** HIPAA-compliant communication channels
+- **Performance Metrics:** Clinical outcomes and engagement statistics
+
+### Therapeutic Components
+
+#### OutcomeArchitecture (`OutcomeArchitecture.tsx`)
+- **Clinical Outcomes Tracking:** Taxonomy-aligned outcome measurement
+- **Benchmarking System:** Comparative analysis against clinical standards
+- **Contract Compliance:** Clinical contract validation and enforcement
+- **Trend Analysis:** Longitudinal outcome tracking and prediction
+- **Quality Assurance:** Automated quality checks and clinical oversight
+
+#### PatientRoster (`PatientRoster.tsx`)
+- **Patient Management:** Comprehensive patient profiles and demographics
+- **Risk Assessment:** Real-time risk scoring and monitoring
+- **Care Coordination:** Multi-disciplinary care team management
+- **Engagement Tracking:** Patient participation and progress metrics
+- **Emergency Response:** Crisis management and safety protocols
+
+#### ProfessionalInbox (`ProfessionalInbox.tsx`)
+- **Secure Messaging:** HIPAA-compliant clinician communication
+- **Clinical Alerts:** Priority-based notification system
+- **Task Management:** Clinical workflow and assignment tracking
+- **Collaboration Tools:** Care team coordination and information sharing
+- **Audit Trails:** Complete communication and action logging
+
+#### SchedulingCalendar (`SchedulingCalendar.tsx`)
+- **Appointment Management:** Clinical scheduling with conflict resolution
+- **JITAI Integration:** Adaptive scheduling based on patient state
+- **Capacity Management:** Resource optimization and availability tracking
+- **Clinical Context:** Appointment metadata and preparation requirements
+- **Automated Scheduling:** AI-powered appointment optimization
+
+#### SessionManager (`SessionManager.tsx`)
+- **JITAI Orchestration:** Real-time therapeutic intervention delivery
+- **Session State Management:** Dynamic session progression and adaptation
+- **Clinical Safety Monitoring:** Real-time safety checks and intervention
+- **Content Delivery:** Personalized therapeutic content sequencing
+- **Analytics Integration:** Session metrics and outcome tracking
+
+#### StateManager (`StateManager.tsx`)
+- **Arousal Computation:** Real-time physiological and behavioral state analysis
+- **Risk Factor Analysis:** Multi-dimensional risk assessment
+- **Intervention Triggers:** Automated intervention activation protocols
+- **State History:** Longitudinal state tracking and pattern analysis
+- **Safety Gates:** Clinical safety validation and emergency protocols
+
+#### RiskMonitoring (`RiskMonitoring.tsx`)
+- **Clinical Risk Alerts:** Real-time risk detection and notification
+- **Escalation Protocols:** Automated risk response and intervention
+- **Alert Prioritization:** Clinical severity-based alert management
+- **Response Tracking:** Intervention effectiveness and outcome monitoring
+- **Compliance Reporting:** Regulatory reporting and audit trails
+
+---
+
+## Technical Architecture
+
+### Frontend Layer (React/TypeScript)
+- **Component Architecture:** Modular React components with TypeScript interfaces
+- **State Management:** Context-based state with real-time subscriptions
+- **UI Framework:** Custom design system with accessibility compliance
+- **Performance:** Optimized rendering with lazy loading and code splitting
+- **Testing:** Comprehensive unit and integration testing with clinical validation
+
+### Backend Layer (Supabase)
+- **Database:** PostgreSQL with Row Level Security (RLS) policies
+- **Real-time:** WebSocket subscriptions for live data updates
+- **Edge Functions:** Serverless functions for clinical computations
+- **Authentication:** Multi-tenant auth with role-based access control
+- **Storage:** Secure file storage for clinical documents and media
+
+### API Layer (REST/GraphQL)
+- **Clinical Contracts:** Governed API endpoints with safety validation
+- **Taxonomy Services:** Schema/family/mindblock resolution APIs
+- **JITAI Engine:** Real-time intervention orchestration services
+- **Analytics Pipeline:** Clinical outcome and engagement metrics
+- **Audit Services:** Complete activity logging and compliance reporting
+
+### Integration Layer
+- **Wearable Devices:** Physiological data ingestion and processing
+- **EHR Systems:** Electronic health record integration with HL7/FHIR
+- **Telehealth Platforms:** Video/audio session management
+- **Notification Systems:** Multi-channel alert and communication delivery
+- **Analytics Platforms:** Advanced clinical analytics and reporting
+
+### Security & Compliance
+- **Data Encryption:** End-to-end encryption for all sensitive data
+- **Access Control:** Multi-factor authentication with clinical oversight
+- **Audit Trails:** Immutable logging of all clinical decisions and actions
+- **Compliance:** HIPAA/GDPR/SOC2 compliance with automated validation
+- **Privacy:** Data minimization with purpose-based retention policies
+
+---
+
+## Deployment & Operations
+
+### Infrastructure
+- **Cloud Platform:** AWS/GCP/Azure with multi-region redundancy
+- **Container Orchestration:** Kubernetes with auto-scaling and self-healing
+- **CDN:** Global content delivery for low-latency therapeutic content
+- **Monitoring:** Comprehensive observability with clinical SLA tracking
+- **Backup:** Automated backups with point-in-time recovery
+
+### DevOps Pipeline
+- **CI/CD:** Automated testing and deployment with clinical validation gates
+- **Environment Management:** Development, staging, and production isolation
+- **Feature Flags:** Gradual rollout with clinical safety monitoring
+- **Rollback Procedures:** Automated rollback with data integrity preservation
+- **Performance Monitoring:** Real-time performance tracking with clinical impact assessment
+
+### Clinical Operations
+- **Content Governance:** Clinical review and approval workflows for all interventions
+- **Quality Assurance:** Automated testing of clinical safety and efficacy
+- **Incident Response:** Clinical incident management with regulatory reporting
+- **Training Programs:** Clinician training and certification management
+- **Compliance Monitoring:** Continuous compliance validation and reporting
+
+### Data Operations
+- **Data Pipeline:** Real-time data ingestion and processing pipelines
+- **Analytics Engine:** Clinical outcome analysis and predictive modeling
+- **Reporting:** Automated clinical and operational reporting
+- **Data Retention:** Compliant data lifecycle management
+- **Privacy Controls:** Automated privacy impact assessments and controls
+
+### Security Operations
+- **Threat Detection:** AI-powered security monitoring and threat response
+- **Access Management:** Continuous access review and automated deprovisioning
+- **Vulnerability Management:** Automated scanning and patching
+- **Incident Response:** 24/7 security incident response with clinical impact assessment
+- **Compliance Auditing:** Continuous compliance monitoring and reporting
+CUE INSTANCE (This specific cue)
+  ↓ targets
+CUE TARGET (Where it belongs)
+```
+
+### 1) CUE TYPE (Component Type)
+
+**Purpose:** Defines behavior and safe defaults
+
+**Source:** `component_type_catalog` (expanding to 560+ types) + `navicue_form_catalog` (16 forms)
+
+**Key Fields:**
+- `type_key` (stable ID)
+- `label`, `description`
+- `move_key` (Move)
+- `stage_key` (Stage)  
+- `safe_states[]` (allowed State bands)
+- `guidance_mode_key` (default stance)
+- `modality` (text|audio|somatic|social|planner)
+- `default_receipt_type_keys[]`
+- `default_real_life_check_keys[]`
+- `contraindications` (safety notes)
+- `output_schema_json` (contract for UI + logging)
+- `version`
+
+**Frontend Rule:** CueType is the "Apple HIG" layer. Rendering and expected outputs are driven by CueType, not ad-hoc copy.
+
+---
+
+### 2) CUE INSTANCE (This specific cue)
+
+**Purpose:** Language/content variation + linkage to targets
+
+**Source:** `navicues_v2`
+
+**Key Fields:**
+- `id` (UUID or text)
+- `status` (draft|active|retired)
+- `form_slug` (from export "family")
+- `component_type_key`
+- Content fields: `text` / `prompt_md` / `audio_asset_id` / `content_ref`
+- **Contract fields (governed):**
+  - `move_key`
+  - `stage_key`
+  - `state_band`
+  - `guidance_mode_key`
+  - `receipt_type_keys[]`
+  - `real_life_check_keys[]`
+- `variant_meta` JSON (extra metadata)
+
+**Frontend Rule:** CueInstance is "what the user sees." CueType is "what the system does."
+
+---
+
+### 3) CUE TARGET (Where it belongs)
+
+**Purpose:** Deterministic routing + visualizer mapping
+
+**Source:** `navicue_targets_v2`
+
+**Minimum:** Cue must target at least a **Pattern** (schema_id)
+
+**Optional enrichment:**
+- Cluster = `family_id` (from `mindblock_families`)
+- Signal = `mindblock_id` (from `mindblocks`)
+
+**Also optional filters:**
+- pillar/concept/theme (if used)
+
+**Frontend Rule:** Targets must be stored as **IDs**, never slugs/strings.
+
+---
+
+## THE CONTRACT LAYER (Non-negotiable)
+
+Every cue must declare:
+
+### 1. MOVE (Action Grammar)
+- orient
+- downshift  
+- name_pattern
+- make_move
+- capture_receipt
+- real_life_check
+- repair
+- witness
+
+### 2. STAGE (K-B-E)
+- **learn** (Knowing)
+- **believe** (Believing)
+- **live** (Embodying)
+
+### 3. STATE BAND (Safety Gate)
+- **calm** (GREEN)
+- **activated** (AMBER)
+- **overwhelmed** (RED)
+
+### 4. GUIDANCE MODE (Voice Stance)
+- clinician_direct
+- coach_action
+- nurturer_coregulate
+- peer_normalise
+- sage_perspective
+- witness_validate
+- crisis_safety_rail
+
+### 5. RECEIPTS (Proof Types)
+- body_shift
+- reflection_logged
+- choice_made
+- completed_move
+- boundary_done
+- micro_receipt
+- support_ping_sent
+- meeting_prep_done
+- repair_done
+- etc.
+
+### 6. REAL-LIFE CHECKS (Transfer Tests)
+- craving_transfer
+- next_time_rep
+- workday_transfer
+- boundary_transfer
+- meeting_transfer
+- night_out_transfer
+- social_transfer
+- etc.
+
+**Frontend Implication:** The UI is not "chat." It's a controlled component flow with expected outputs.
+
+---
+
+## STATUS RULES (Draft vs Active)
+
+### DRAFT (Allowed)
+- Partial targets OK (but should have at least schema target if possible)
+- Contract can be missing **only until** saved as "ready"
+- Can exist without proof/check defaults
+
+### ACTIVE (Non-negotiable; enforced by DB activation guards)
+
+A cue **CANNOT** be activated unless it has:
+- `component_type_key` (or deterministic Type resolution)
+- **Full contract fields:**
+  - move_key, stage_key, state_band, guidance_mode_key
+  - receipt_type_keys[]
+  - real_life_check_keys[] (can be empty only if Move doesn't require it)
+- **At least one target:**
+  - schema_id (Pattern)
+- **Valid safety:**
+  - state_band ∈ CueType.safe_states
+  - and Move/state compatibility
+
+**Frontend must mirror the same gate** to avoid dev confusion.
+
+---
+
+# THE 6 PILLARS (Physiology → Identity)
+
+Locked clinical map (Onboarding remains a system wrapper, not a clinical pillar):
+
+1. **Emotional Regulation** - Downshift, orient, regulate
+2. **Stress Resilience** - Recovery protocols, PFC protection, 2-second gap
+3. **Social Connectivity** - Clean asks, boundaries, rupture repair
+4. **Cognitive Reframing** - Test predictions, update models, evidence-test
+5. **Identity Integration** - Witness, values alignment, future self
+6. **Decision Mastery** - Gap creation, field editing, slip → repair
+
+---
+
+# THE 8 VOICES (Conference-Legible Clinical Stances)
+
+**Not "personalities" - clinical stance routing dimensions**
+
+1. **Clinician** (Attuned Therapist)
+2. **Compassionate Witness**
+3. **Coach** (Agency Builder)
+4. **Sage** (Perspective Shifter)
+5. **Paradox** (Pattern Breaker)
+6. **Nurturer** (Co-regulator)
+7. **Straight Talk** (Reality Anchor)
+8. **Elder** (Integrity / Values)
+
+---
+
+# THE 8 APPROACHES (Move Library)
+
+1. Statement mirror
+2. Belief probe
+3. Somatic scan
+4. Paradox prompt
+5. Make-one-move
+6. Receipt capture
+7. Transfer test
+8. Repair script
+9. Witness reflection
+
+---
+
+# THE 10 FAMILY ARCHETYPES (Routing Dictionary)
+
+**We do not route by content. We route by Family type.**
+
+### Archetype A - Urgency Spike and Escape
+- Default heat: **RED**
+- Primary primitives: Orient → Downshift
+- Voices: Nurturer, Clinician
+- Proof: 90-second rescue receipt + before/after intensity
+- Transfer: repeat same day in different context
+
+### Archetype B - Rumination and Forecasting
+- Default heat: **AMBER**
+- Primary primitives: Name Pattern
+- Voices: Sage, Clinician, Paradox
+- Proof: evidence/probability list
+- Transfer: apply to second forecast within 48h
+
+### Archetype C - Shame and Self Attack
+- Default heat: **AMBER**
+- Primary primitives: Witness → Repair
+- Voices: Compassionate Witness, Clinician, Elder
+- Proof: repair receipt + one self-compassion line
+- Transfer: repair after next rupture
+
+### Archetype D - Overcontrol and Perfection
+- Default heat: **AMBER → GREEN**
+- Primary primitives: Make Move
+- Voices: Paradox, Coach, Elder
+- Proof: imperfect rep receipt
+- Transfer: repeat the imperfect rep tomorrow
+
+### Archetype E - Withdrawal and Avoidance
+- Default heat: **AMBER**
+- Primary primitives: Make Move
+- Voices: Coach, Witness
+- Proof: stay-longer or graded exposure receipt
+- Transfer: do it again in new place
+
+### Archetype F - Reassurance and Attachment Panic
+- Default heat: **RED → AMBER**
+- Primary primitives: Downshift → Make Move
+- Voices: Nurturer, Clinician
+- Proof: delay-reassurance receipt + clean-ask receipt
+- Transfer: repeat with different person
+
+### Archetype G - Boundary and Subjugation
+- Default heat: **GREEN**
+- Primary primitives: Repair or Make Move
+- Voices: Clinician, Elder
+- Proof: "no with warmth" or boundary message receipt
+- Transfer: next boundary within 7 days
+
+### Archetype H - Meaning Collapse and Drift
+- Default heat: **GREEN**
+- Primary primitives: Witness → Make Move
+- Voices: Sage, Elder, Coach
+- Proof: values-aligned act receipt
+- Transfer: repeat 3× in week
+
+### Archetype I - Help Reactance
+- Default heat: **AMBER**
+- Primary primitives: Paradox → Make Move
+- Voices: Paradox, Coach
+- Proof: accept one help act receipt
+- Transfer: accept help again within week
+
+### Archetype J - Slip Spiral
+- Default heat: **AMBER**
+- Primary primitives: Repair → Capture Receipt
+- Voices: Clinician, Witness
+- Proof: lapse-to-learning receipt + next step chosen
+- Transfer: apply on next wobble
+
+---
+
+# THE COMPLETE DATABASE MODEL
+
+## Core Taxonomy Tables
+
+### `schema_catalog` (20 rows)
+- `schema_code` (S1...S20)
+- `title`
+- `description_md`
+- Public-facing variants in `schema_public_profiles`
+- Aliases in `schema_aliases` (collapses ~30 variants → 20 canonical)
+
+### `mindblock_families` (200 rows)
+- `family_code` (unique: e.g., "S2-F1")
+- `family_name` (e.g., "Preemptive Self Attack")
+- `family_index` (1-8, position within schema)
+- `schema_code` (S1...S20)
+- `schema_name`
+- `archetype` (A-J)
+- `routing_default` (JSON with heat/primitives/voices)
+
+### `mindblocks` (2400 rows)
+- `mindblock_id` (UUID or coded ID)
+- `limiting_prediction` (old forecast)
+- `replacement_truth` (new forecast)
+- `primitive` (Move)
+- `voices[]` (2-3 stances)
+- `heat_band` (GREEN/AMBER/RED)
+- `kbe_target` (learn/believe/live)
+- `proof_artifacts[]`
+- `transfer_test[]`
+- Associated metadata
+
+### `mindblock_family_membership` (2400 rows)
+- Links mindblocks → families (many-to-many possible)
+- `mindblock_id`
+- `family_id`
+- `membership_type` (primary/secondary)
+
+---
+
+## NaviCue System Tables
+
+### `component_type_catalog` (expanding to 560+ rows)
+- `type_key` (stable ID)
+- Complete contract defaults
+- `output_schema_json` (what this component produces)
+- Safety constraints
+
+### `navicue_form_catalog` (16 rows)
+- Form slugs (interaction types)
+- belief_probe, statement_mirror, story_shard, practice, curveball, etc.
+
+### `navicues_v2` (3,000+ rows, scaling to 10K+)
+- Cue instances
+- Content fields
+- Contract fields (move, stage, state, mode, receipts, checks)
+- Status (draft/active/retired)
+
+### `navicue_targets_v2`
+- Links cues to patterns/clusters/signals
+- Minimum: schema_id (Pattern) required
+- Optional: family_id (Cluster), mindblock_id (Signal)
+
+---
+
+## Dictionary Tables
+
+### `primitives_catalog` (Moves)
+- Move labels
+- Safe state hints
+- Default receipts/checks
+
+### `guidance_modes` (Voice Stances)
+- Mode keys + descriptions
+
+### `receipt_types` (Proof Types)
+- All possible receipt types
+
+### `real_life_check_types` (Transfer Tests)
+- All possible transfer checks
+
+---
+
+# THE SCALING STRATEGY
+
+## Current State (Phase 2 Complete)
+- **3,000 raw cues** imported from CSV
+- Normalizing with governed contracts
+- Enriching with Pattern-level targets
+
+## Phase 2.5 (Next)
+- Enrich with Cluster-level targets
+- Enrich with Signal-level targets
+- Review and activate
+
+## Goal: 10,000+ Cues
+**How we scale WITHOUT boredom:**
+
+**NOT:** Writing 7,000 more random synonyms
+**YES:** Expanding the **Component Type Catalog** (components), then generating/curating instances
+
+**This means:**
+- More component variety
+- More modalities
+- More context optimizations
+- More receipt/check diversity
+
+**The feed feels fresh because FUNCTION varies, not because synonyms vary.**
+
+---
+
+# THE 10TH POINT LOCK (Reality Conditions & Safety)
+
+Critical constraints that keep this clinically defensible:
+
+1. **The Willingness Gate**
+   - The system can deliver the next inch, but it can't want it for someone
+
+2. **Resistance is a Living Signal (ρ)**
+   - Not failure; a routing signal
+   - Wrong dosage, wrong voice, wrong target, or "we need a human"
+
+3. **Escalation Protocol**
+   - Change delivery → change target → invoke human → invoke safety rails
+
+4. **LUMA Boundary**
+   - Guiding intelligence inside governed infrastructure
+   - NOT freeform therapy chat
+
+5. **Closed-Loop Comms + Connector Layer**
+   - Prep cue → in-moment cue → post-event receipt → transfer
+
+6. **Outside-World Connectors**
+   - Must be context, not surveillance
+
+7. **Data Dignity**
+   - No ranking humans against humans
+   - No shame charts
+   - Data exists to return you to yourself
+
+---
+
+# THE RENDERING CONTRACT
+
+## How the NaviCue Runner Builds UI
+
+### INPUT to Runner:
+- CueInstance (navicues_v2 row)
+- CueType (component_type_catalog row resolved by `component_type_key`)
+- Targets (navicue_targets_v2)
+- Context (optional): state score, time of day, last proof, resistance flags
+
+### OUTPUT SCHEMA (from `output_schema_json`):
+
+Defines:
+- `produces[]` (what this component creates)
+- `required_fields[]` (fields FE must collect)
+- `optional_fields[]` (fields FE may collect)
+
+### FE Renders Form Based on Schema:
+
+Common controls:
+- select: Pattern/Cluster/Signal (if required)
+- text area: reflection / label / plan
+- toggles: completed / sent / scheduled
+- audio recorder / attachment (if permitted)
+- timer UI (somatic practices)
+- "Send support ping" UI (if social)
+
+### LOGGING:
+
+Every completion creates:
+- A "receipt event" (proof pipeline)
+- Stores:
+  - cue_id
+  - type_key
+  - targets (schema/family/mindblock ids)
+  - state_band, stage_key, move_key, guidance_mode_key
+  - response payload (validated against output schema)
+
+---
+
+# 10 EXAMPLE FLOWS (End-to-End)
+
+Each flow: **CueType → UI → Output → Receipt/Check**
+
+### 1. Downshift · Overwhelmed · Crisis Safety-Rail (Somatic)
+- **UI:** 30-60s protocol (phys sigh / grounding)
+- **Output:** "completed protocol", optional body rating
+- **Receipt:** `body_shift`
+
+### 2. Repair · Overwhelmed · Clinician-Direct (Text)
+- **UI:** "Relapse as data" debrief prompts
+- **Output:** trigger, cost, next step
+- **Receipt:** `repair_done`
+- **Check:** `craving_transfer`
+
+### 3. Orient · Activated · Coach-Action (Planner)
+- **UI:** "choice point" picker (2 options)
+- **Output:** next action selected
+- **Receipt:** `choice_made`
+- **Check:** `next_time_rep`
+
+### 4. Name Pattern · Activated · Sage-Perspective (Text)
+- **UI:** pattern label + "this is Sx doing Sy"
+- **Output:** signal named, trigger named
+- **Receipt:** `reflection_logged`
+
+### 5. Make Move · Activated · Coach-Action (Text)
+- **UI:** micro choice (one action now)
+- **Output:** completed action toggle + note
+- **Receipt:** `completed_move`
+- **Check:** `workday_transfer`
+
+### 6. Make Move · Calm · Social (Boundary Script)
+- **UI:** choose script template → edit → send
+- **Output:** message drafted/sent
+- **Receipt:** `boundary_done`
+- **Check:** `boundary_transfer`
+
+### 7. Capture Receipt · Calm · Witness-Validate
+- **UI:** quick "what I did" receipt form
+- **Output:** receipt_logged
+- **Receipt:** `micro_receipt`
+
+### 8. Real-Life Check · Calm · Planner (Night-Out Protocol)
+- **UI:** plan steps + safety buddy + exit time
+- **Output:** plan saved
+- **Receipt:** `completed_move`
+- **Check:** `night_out_transfer`
+
+### 9. Witness · Calm · Peer-Normalise
+- **UI:** share receipt to peer circle / request reflection
+- **Output:** ping sent
+- **Receipt:** `support_ping_sent`
+- **Check:** `social_transfer`
+
+### 10. Meeting Prep → Meeting Debrief Loop
+- **Prep cue:** planner checklist, receipt `meeting_prep_done`
+- **Debrief cue:** reflection capture, receipt `meeting_debrief_done`
+- **Check:** `meeting_transfer`
+
+---
+
+# UI COMPONENTS TO BUILD
+
+## A) NaviCue Card (Library/Admin)
+
+**Badges:**
+- Pattern (public name optional)
+- Move
+- Stage
+- State
+- Guidance Mode
+- Receipt + Check intents
+- Form slug
+- Status
+
+**Actions:**
+- Edit copy
+- Edit contract overrides
+- Edit targets
+- Activate (only if passes gate)
+
+---
+
+## B) NaviCue Runner (User Experience)
+
+- Shows content
+- Executes the Move
+- Captures required output
+- Writes receipt
+- Optionally schedules / triggers real-life check
+
+---
+
+## C) Target Picker (Enrichment Tool)
+
+- **Required:** Pattern
+- **Optional:** Cluster, Signal
+- Shows coverage hints ("this Pattern lacks Live + Activated cues")
+
+---
+
+## D) Coverage Dashboard (Ops)
+
+**Matrix:**
+Pattern × Move × Stage × State
+
+**Counts of:**
+- `draft` vs `active`
+
+**This is how we decide what to build next (not vibes).**
+
+---
+
+# NON-NEGOTIABLES (To Prevent Drift)
+
+1. **No activation without:** contract + schema target + safe state
+2. **Never treat CSV `family` as clinical family**
+3. **Targets must be IDs** (never slugs/strings)
+4. **CueType drives behaviour; CueInstance drives language**
+5. **LUMA suggests next step only, never open chat**
+6. **One rule: Never allow freeform cue creation without contract + targets**
+   - If it can't be routed and measured, it shouldn't exist
+   - Activation guards enforce this in DB
+   - UI should enforce it too
+
+---
+
+# IMPLEMENTATION REQUIREMENTS (Schema Support Needed Next)
+
+From Clinician Review Pack Section 9:
+
+- Resistance signals (hesitation, abandon, no-shift patterns)
+- Escalation protocols (reason, target, outcome)
+- Support network graph + consent scoping
+- Closed-loop comms (notification → action → proof)
+- Connector permissions (health/meetings/community)
+- Data dignity rules (no ranking humans)
+
+---
+
+# THE COMPLETE PICTURE
+
+## What Makes This Different
+
+**NOT:**
+- Content library
+- Chatbot
+- Inspiration app
+- Self-help platform
+
+**YES:**
+- **Installable clinical operating system**
+- **Governed guidance engine**
+- **Nervous system programming**
+- **Routable, safe, measurable, auditable**
+
+## The Data Model Hierarchy
+
+```
+PATTERN (20) - Predictive pattern
+  ↓
+CLUSTER (200) - Expression cluster  
+  ↓
+SIGNAL (2400) - Atomic endpoint
+  ↓
+CUE TYPE (560+) - Component definition
+  ↓
+CUE INSTANCE (10K+) - Language variation
+  ↓
+CUE TARGET - Routing precision
+  ↓
+RECEIPT - Proof captured
+  ↓
+TRANSFER - Real-world validation
+```
+
+## The Clinical Map
+
+```
+6 PILLARS
+  ↓
+8 VOICES (stances)
+  ↓
+8 APPROACHES (moves)
+  ↓
+10 ARCHETYPES (routing)
+  ↓
+K-B-E PROGRESSION (learn → believe → live)
+  ↓
+STATE GATING (calm → activated → overwhelmed)
+  ↓
+PROOF + TRANSFER (auditable change)
+```
+
+---
+
+# SUMMARY: THE ANCHOR POINTS
+
+1. **20 Patterns** (Schemas) - The predictive models
+2. **200 Clusters** (Families) - The expression patterns
+3. **2,400 Signals** (Mindblocks) - The atomic endpoints
+4. **10,000+ Cues** - The delivered interventions
+5. **560+ Types** - The component definitions
+6. **6 Pillars** - The clinical foundation
+7. **8 Voices** - The clinical stances
+8. **8 Approaches** - The move library
+9. **10 Archetypes** - The routing dictionary
+10. **K-B-E × Heat** - The progression × safety matrix
+
+**This is not a platform. This is an installation system.**
+
+---
+
+**END OF COMPLETE ARCHITECTURE MAP**

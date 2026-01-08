@@ -1,0 +1,30 @@
+{
+  "global": {
+    "colors": {
+      "bg.base": "#FFFFFF",
+      "bg.surface": "#F7F7F8",
+      "bg.overlay": "#0B0B0C",
+      "text.primary": "#0B0B0C",
+      "text.muted": "#6B6C70",
+      "border.default": "#E6E6E8",
+      "brand.primary": "#0066FF",
+      "brand.accent": "#00C2A8"
+    },
+    "space": {
+      "1": 4,
+      "2": 8,
+      "3": 12,
+      "4": 16,
+      "5": 20,
+      "6": 24,
+      "7": 32,
+      "8": 40
+    },
+    "type": {
+      "body": 16,
+      "h1": 22,
+      "h2": 18,
+      "small": 13
+    }
+  }
+}

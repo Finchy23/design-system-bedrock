@@ -1,0 +1,242 @@
+{
+  "color": {
+    "bg": {
+      "base": {
+        "value": "#FFFFFF"
+      },
+      "surface": {
+        "value": "#F7F7F8"
+      },
+      "overlay": {
+        "value": "#0B0B0C"
+      }
+    },
+    "text": {
+      "primary": {
+        "value": "#0B0B0C"
+      },
+      "muted": {
+        "value": "#6B6C70"
+      }
+    },
+    "border": {
+      "default": {
+        "value": "#E6E6E8"
+      }
+    },
+    "brand": {
+      "primary": {
+        "value": "#0066FF"
+      },
+      "accent": {
+        "value": "#00C2A8"
+      },
+      "palette": {
+        "50": {
+          "value": "#E6F0FF"
+        },
+        "100": {
+          "value": "#CCE0FF"
+        },
+        "200": {
+          "value": "#99C2FF"
+        },
+        "300": {
+          "value": "#66A3FF"
+        },
+        "400": {
+          "value": "#3385FF"
+        },
+        "500": {
+          "value": "#0066FF"
+        },
+        "600": {
+          "value": "#0052CC"
+        },
+        "700": {
+          "value": "#003D99"
+        },
+        "800": {
+          "value": "#002966"
+        },
+        "900": {
+          "value": "#001433"
+        }
+      }
+    },
+    "status": {
+      "success": {
+        "value": "#0A8A5F"
+      },
+      "warning": {
+        "value": "#D9822B"
+      },
+      "danger": {
+        "value": "#D64545"
+      },
+      "info": {
+        "value": "#1E90FF"
+      }
+    }
+  },
+  "type": {
+    "font": {
+      "body": {
+        "value": "Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial"
+      }
+    },
+    "size": {
+      "display": {
+        "value": 28
+      },
+      "h1": {
+        "value": 22
+      },
+      "h2": {
+        "value": 18
+      },
+      "body": {
+        "value": 16
+      },
+      "small": {
+        "value": 13
+      },
+      "meta": {
+        "value": 12
+      }
+    },
+    "weight": {
+      "regular": {
+        "value": 400
+      },
+      "medium": {
+        "value": 500
+      },
+      "semibold": {
+        "value": 600
+      },
+      "bold": {
+        "value": 700
+      }
+    }
+  },
+  "space": {
+    "1": {
+      "value": 4
+    },
+    "2": {
+      "value": 8
+    },
+    "3": {
+      "value": 12
+    },
+    "4": {
+      "value": 16
+    },
+    "5": {
+      "value": 20
+    },
+    "6": {
+      "value": 24
+    },
+    "7": {
+      "value": 32
+    },
+    "8": {
+      "value": 40
+    }
+  },
+  "surface": {
+    "levels": {
+      "base": {
+        "bg": {
+          "value": "color.bg.base"
+        },
+        "border": {
+          "value": "color.border.default"
+        },
+        "shadow": {
+          "value": null
+        }
+      },
+      "raised": {
+        "bg": {
+          "value": "color.bg.surface"
+        },
+        "border": {
+          "value": "color.border.default"
+        },
+        "shadow": {
+          "value": "shadow.1"
+        }
+      },
+      "overlay": {
+        "bg": {
+          "value": "color.bg.overlay"
+        },
+        "border": {
+          "value": null
+        },
+        "shadow": {
+          "value": "shadow.3"
+        }
+      }
+    }
+  },
+  "shadow": {
+    "1": {
+      "value": "0 1px 2px rgba(11,11,12,0.04)"
+    },
+    "2": {
+      "value": "0 4px 8px rgba(11,11,12,0.06)"
+    },
+    "3": {
+      "value": "0 12px 24px rgba(11,11,12,0.12)"
+    }
+  },
+  "motion": {
+    "fast": {
+      "value": "120ms"
+    },
+    "med": {
+      "value": "200ms"
+    },
+    "slow": {
+      "value": "320ms"
+    }
+  },
+  "shape": {
+    "radius": {
+      "value": "6px"
+    },
+    "focusRingWidth": {
+      "value": "4px"
+    }
+  },
+  "modes": {
+    "light": {},
+    "dark": {
+      "color": {
+        "bg": {
+          "base": {
+            "value": "#0B0B0C"
+          },
+          "surface": {
+            "value": "#111214"
+          },
+          "overlay": {
+            "value": "#FFFFFF"
+          }
+        },
+        "text": {
+          "primary": {
+            "value": "#FFFFFF"
+          },
+          "muted": {
+            "value": "#BFC2C6"
+          }
+        }
+      }
+    }
+  }
+}

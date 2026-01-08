@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Renderer Module Metadata",
+  "type": "object",
+  "properties": {
+    "id": { "type": "string" },
+    "title": { "type": "string" },
+    "intent": { "type": "string", "enum": ["belief", "friction", "qualify", "commit"] },
+    "signals": { "type": "array", "items": { "type": "string" } },
+    "primaryCTA": { "type": "string" },
+    "heatGate": {
+      "type": "object",
+      "properties": {
+        "red": { "type": "boolean" },
+        "amber": { "type": "boolean" },
+        "green": { "type": "boolean" }
+      },
+      "required": []
+    },
+    "proofAsk": { "type": "boolean" }
+  },
+  "required": ["id", "intent", "heatGate"]
+}

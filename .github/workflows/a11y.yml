@@ -1,0 +1,23 @@
+name: Accessibility checks
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  a11y:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - name: Install
+        run: npm ci
+      - name: Build Storybook (tokens built in prebuild step)
+        run: npm run build-storybook
+      - name: Run pa11y-ci accessibility checks
+        run: npx pa11y-ci --config .pa11yci

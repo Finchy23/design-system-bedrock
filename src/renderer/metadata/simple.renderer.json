@@ -1,0 +1,9 @@
+{
+  "id": "simple.renderer",
+  "title": "Simple Example Renderer",
+  "intent": "qualify",
+  "signals": ["started", "completed"],
+  "primaryCTA": "continue",
+  "heatGate": { "red": false, "amber": true, "green": true },
+  "proofAsk": false
+}

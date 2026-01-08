@@ -1,0 +1,8 @@
+{
+  "extends": "stylelint-config-standard",
+  "rules": {
+    "color-no-hex": true,
+    "declaration-no-important": true,
+    "property-no-unknown": [true, { "ignoreProperties": ["backdrop-filter", "-webkit-backdrop-filter"] }]
+  }
+}

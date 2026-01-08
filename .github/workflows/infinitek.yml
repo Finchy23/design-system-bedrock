@@ -1,0 +1,25 @@
+name: infiniteK checks
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+
+jobs:
+  enforce:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: npm ci
+      - name: Run infiniteK checks
+        run: npm run lint:infinitek
+      - name: Run token lint
+        run: npm run token-lint
+      - name: Validate renderer modules
+        run: node scripts/validate-modules.js
