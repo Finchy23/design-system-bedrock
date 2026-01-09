@@ -1,17 +1,16 @@
 import React from 'react';
 import { PageSection } from '../blocks/PageSection';
 import { HeroBlock } from '../blocks/HeroBlock';
-import { ProofBlock } from '../blocks/ProofBlock';
 import { CtaBand } from '../blocks/CtaBand';
-import { HeroContent, ProofContent, CtaContent } from './types';
+import { HeroContent, CtaContent } from './types';
+import { CriticalRecoveryDeck } from '../../components/CriticalRecoveryDeck';
 
 export type ProofPageProps = {
   hero: HeroContent;
-  proof: ProofContent;
   cta: CtaContent;
 };
 
-export function ProofPage({ hero, proof, cta }: ProofPageProps) {
+export function ProofPage({ hero, cta }: ProofPageProps) {
   return (
     <div>
       <PageSection tone="overlay">
@@ -19,7 +18,7 @@ export function ProofPage({ hero, proof, cta }: ProofPageProps) {
       </PageSection>
 
       <PageSection>
-        <ProofBlock {...proof} />
+        <CriticalRecoveryDeck />
       </PageSection>
 
       <PageSection>

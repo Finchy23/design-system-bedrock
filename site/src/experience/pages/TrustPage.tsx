@@ -5,6 +5,7 @@ import { DataDignityBlock } from '../blocks/DataDignityBlock';
 import { EscalationBlock } from '../blocks/EscalationBlock';
 import { CtaBand } from '../blocks/CtaBand';
 import { HeroContent, SimpleBlock, CtaContent } from './types';
+import { GovernancePanel } from '../../components/CriticalRecoveryDeck';
 
 export type TrustPageProps = {
   hero: HeroContent;
@@ -18,6 +19,10 @@ export function TrustPage({ hero, dataDignity, escalation, cta }: TrustPageProps
     <div>
       <PageSection tone="overlay">
         <HeroBlock {...hero} />
+      </PageSection>
+
+      <PageSection>
+        <GovernancePanel />
       </PageSection>
 
       <PageSection>

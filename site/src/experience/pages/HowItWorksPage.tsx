@@ -1,25 +1,18 @@
 import React from 'react';
 import { PageSection } from '../blocks/PageSection';
 import { HeroBlock } from '../blocks/HeroBlock';
-import { LoopExplainerBlock } from '../blocks/LoopExplainerBlock';
-import { ProofBlock } from '../blocks/ProofBlock';
-import { LumaVowBlock } from '../blocks/LumaVowBlock';
-import { DataDignityBlock } from '../blocks/DataDignityBlock';
-import { EscalationBlock } from '../blocks/EscalationBlock';
 import { CtaBand } from '../blocks/CtaBand';
-import { HeroContent, LoopContent, ProofContent, SimpleBlock, CtaContent } from './types';
+import { HeroContent, CtaContent } from './types';
+import { RecoveryContinuityShowcase } from '../../components/ContinuityEngineBlocks';
+import { FoundationDeck } from '../../components/FoundationBlocks';
+import { CriticalRecoveryDeck } from '../../components/CriticalRecoveryDeck';
 
 export type HowItWorksPageProps = {
   hero: HeroContent;
-  loop: LoopContent;
-  proof: ProofContent;
-  luma: SimpleBlock;
-  dataDignity: SimpleBlock;
-  escalation: SimpleBlock & { ctaLabel?: string; onCta?: () => void };
   cta: CtaContent;
 };
 
-export function HowItWorksPage({ hero, loop, proof, luma, dataDignity, escalation, cta }: HowItWorksPageProps) {
+export function HowItWorksPage({ hero, cta }: HowItWorksPageProps) {
   return (
     <div>
       <PageSection tone="overlay">
@@ -27,23 +20,15 @@ export function HowItWorksPage({ hero, loop, proof, luma, dataDignity, escalatio
       </PageSection>
 
       <PageSection>
-        <LoopExplainerBlock {...loop} />
+        <RecoveryContinuityShowcase />
       </PageSection>
 
       <PageSection>
-        <ProofBlock {...proof} />
+        <FoundationDeck />
       </PageSection>
 
       <PageSection>
-        <LumaVowBlock title={luma.title} bullets={luma.bullets} />
-      </PageSection>
-
-      <PageSection>
-        <DataDignityBlock title={dataDignity.title} bullets={dataDignity.bullets} />
-      </PageSection>
-
-      <PageSection>
-        <EscalationBlock title={escalation.title} body={escalation.subtitle} ctaLabel={escalation.ctaLabel} onCta={escalation.onCta} />
+        <CriticalRecoveryDeck />
       </PageSection>
 
       <PageSection>

@@ -1,21 +1,18 @@
 import React from 'react';
 import { PageSection } from '../blocks/PageSection';
 import { HeroBlock } from '../blocks/HeroBlock';
-import { LoopExplainerBlock } from '../blocks/LoopExplainerBlock';
-import { LumaVowBlock } from '../blocks/LumaVowBlock';
-import { DataDignityBlock } from '../blocks/DataDignityBlock';
 import { CtaBand } from '../blocks/CtaBand';
-import { HeroContent, LoopContent, SimpleBlock, CtaContent } from './types';
+import { HeroContent, CtaContent } from './types';
+import { RecoveryContinuityShowcase } from '../../components/ContinuityEngineBlocks';
+import { FoundationDeck } from '../../components/FoundationBlocks';
+import { CriticalRecoveryDeck } from '../../components/CriticalRecoveryDeck';
 
 export type TechnologyPageProps = {
   hero: HeroContent;
-  loop: LoopContent;
-  luma: SimpleBlock;
-  dataDignity: SimpleBlock;
   cta: CtaContent;
 };
 
-export function TechnologyPage({ hero, loop, luma, dataDignity, cta }: TechnologyPageProps) {
+export function TechnologyPage({ hero, cta }: TechnologyPageProps) {
   return (
     <div>
       <PageSection tone="overlay">
@@ -23,15 +20,15 @@ export function TechnologyPage({ hero, loop, luma, dataDignity, cta }: Technolog
       </PageSection>
 
       <PageSection>
-        <LumaVowBlock title={luma.title} bullets={luma.bullets} />
+        <RecoveryContinuityShowcase />
       </PageSection>
 
       <PageSection>
-        <DataDignityBlock title={dataDignity.title} bullets={dataDignity.bullets} />
+        <FoundationDeck />
       </PageSection>
 
       <PageSection>
-        <LoopExplainerBlock {...loop} />
+        <CriticalRecoveryDeck />
       </PageSection>
 
       <PageSection>

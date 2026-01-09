@@ -1,0 +1,1264 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>RecoveryOS</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2e25a0fd-01ef-803b-9f50-e1597b490d57" class="page sans"><header><h1 class="page-title" dir="auto">RecoveryOS</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><h1 id="executive-snapshot" class=""><strong>Executive Snapshot</strong></h1></div><div style="display:contents" dir="auto"><pre class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">What it is: A neuroadaptive operating system for real-life recovery, routed in the moment and proven with receipts.
+Why it wins: Heat-aware, consent-bound delivery that turns micro-interventions into identity updates.
+How it runs: Sense the state, route the right primitive, deliver inside the moment, seal with proof, transfer across rooms.
+Proof standard: Receipts stack per mindblock, tied to state/aim/dose/target so clinicians see pattern movement.</code></pre></div><div style="display:contents" dir="auto"><h1 id="why-now" class=""><strong>Why Now</strong></h1></div><div style="display:contents" dir="auto"><pre class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">Window: real-time neuroadaptive delivery is now feasible (sensors + edge models + consent-first UX).
+Gap: care misses the heat moment when the pattern fires; plans fall apart in the wild.
+Edge: RecoveryOS ties state/aim/dose/target to each receipt so it travels across rooms and orgs.
+Outcome: safer, repeatable rewiring with auditability clinicians and regulators can trust.</code></pre></div><div style="display:contents" dir="auto"><h1 id="design-tenets" class=""><strong>Design Tenets</strong></h1></div><div style="display:contents" dir="auto"><pre class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">Safety-first: consent, appropriateness, human boundary before delivery speed.
+Minimal moves: smallest runnable primitive with a defined heat band and exit.
+Proof-first: every move pairs to a receipt the nervous system and clinician can trust.
+Transferable: receipts and IDs travel across rooms, so progress compounds, not resets.
+One Surface Rule: one elevated surface in any hierarchy; UI defers to content.
+Token Rule: all color/type/space/motion come from tokens; CI/lint guard raw styling.</code></pre></div><div style="display:contents" dir="auto"><h1 id="system-stack" class=""><strong>System Stack</strong></h1></div><div style="display:contents" dir="auto"><pre class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">State sensing → Routing → Delivery primitives → Proof capture → Transfer → Governance
+Rooms: LUMA orchestrates cues and receipts across Clinic, Self, Relational rooms.
+Primitives: NaviCues, Journeys, Mindblocks, Schemas, Proof receipts.
+Spine: IDs stay stable; receipts carry state/aim/dose/target and provenance.
+Controls: CI locks spine/tokens; proofs stay auditable across rooms.
+Outcomes: safer iterations, auditable signal, transferable change.</code></pre></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">Recovery slips in the moments that matter.</summary><div class="indented"><div style="display:contents" dir="auto"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="2e25a0fd-01ef-80e4-bf79-ec72b1b509f2" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">It’s biology: 
+under heat,
+the brain defaults to the fastest learned pathway.
+
+So we don’t build for the perfect scenario.
+We build for real life.</code></pre></div><div style="display:contents" dir="auto"><p id="2e25a0fd-01ef-80b1-80e5-ccaf13084a24" class="">
+</p></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><strong>Recovery now runs in real life.</strong></summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-8016-a955-cdc5d8cc4793" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">As a living operating system for change.
+Because recovery isn’t a label. It’s motion.
+A path of becoming.</code></pre></div><div style="display:contents" dir="auto"><p id="2e25a0fd-01ef-8005-834f-ec23386ff70c" class="">
+</p></div></div></details></div><div style="display:contents" dir="auto"><p id="2e25a0fd-01ef-8040-9682-c4debbebce1e" class="">
+</p></div><div style="display:contents" dir="auto"><hr id="2e25a0fd-01ef-80de-b25a-c53680c2316c"/></div><div style="display:contents" dir="auto"><h1 id="2e25a0fd-01ef-8075-a48d-e879d881383c" class="">The Core Shift</h1></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">A new operating truth</summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-80d6-a2c5-caf5d89fadb2" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">Every behaviour is a neural pattern.
+Every pattern is a pathway.
+
+So recovery stabilises the same way anything stabilises:
+by building new pathways —
+until the brain predicts something new by default.</code></pre></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><strong>The problem isn’t care. It’s time.</strong></summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-8059-8fed-c91e8d1529e6" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">Rewiring takes time.
+
+And current systems can’t reliably:
+deliver the right support at the right time,
+keep it small enough to repeat,
+measure it in a way that matters,
+carry integrity across real life,
+or connect the system end to end.</code></pre></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">So recovery breaks in the gap.</summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-80c6-9f14-e89df249bfc0" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">Good intentions. Good sessions. Good care.
+
+And then —
+the gap.
+
+Between intention and pressure.
+Between the plan and the moment.</code></pre></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><strong>Understanding doesn’t rewire. Experience does.</strong></summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-80e2-9fa1-c1319780499e" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">Most systems try to change people through understanding.
+
+But anyone can know anything.
+Knowing doesn’t rewire.
+
+New patterns enter through lived experience.</code></pre></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><strong>RecoveryOS is delivery.</strong></summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-80bd-9095-dfd4484d3aa0" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">RecoveryOS isn’t content.
+It’s delivery.
+
+A neuroadaptive engine that installs change
+where change actually happens:
+in the moment,
+in the body,
+before drift becomes collapse.</code></pre></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><strong>The brain changes in one sequence<br/></strong></summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-80cd-8f4a-fb64222d02a4" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">Experience → Recognition → Alignment → Proof</code></pre></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><strong>Tiny moves. Real conditions. Compounding change.</strong></summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-8002-9de5-f55af221985f" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">No massive commitments.
+No perfect scenario.
+
+Thousands of small rewires,
+installed and validated under real life,
+until the new pathway becomes default.</code></pre></div></div></details></div><div style="display:contents" dir="auto"><p id="2e25a0fd-01ef-8077-919b-dc13bd88ef5c" class="">
+</p></div></div></details></div><div style="display:contents" dir="auto"><hr id="2e25a0fd-01ef-801b-ad20-df470217696f"/></div><div style="display:contents" dir="auto"><h1 id="2e25a0fd-01ef-8002-9ea8-dbb6aad23a3e" class=""><strong>Neuroadaptive Precision</strong></h1></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><strong>One flow. Four moves.</strong></summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-805e-816d-c26c24944a83" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">Sense → Route → Deliver → Seal
+
+Not steps.
+An operating loop.
+
+Run it enough times,
+and the brain installs a new default.</code></pre></div><div style="display:contents" dir="auto"><h3 id="apple-bar" class=""><strong>Apple Bar • in-product feel</strong></h3></div><div style="display:contents" dir="auto"><pre class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">State check → Cue surfaces (NaviCue) → Move delivered with heat band
+Proof request fires → Pre/Post captured → Receipt logged
+Transfer: clinician sees state/aim/dose/target and hold-under-pressure note</code></pre></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><strong>SENSE ~ read the moment, not the story</strong></summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-8067-9fbf-c307ca3c5e1f" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">Understanding the moment you’re in — without judgement.
+State-first. Heat-aware. Consent-bound.</code></pre></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><strong>ROUTE ~ choose the next right move</strong></summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-8043-8a51-ea70da8bd7b4" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">Calibrating what’s next in real time.
+Right dose. Right primitive. Right timing.</code></pre></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><strong>DELIVER ~ place the move inside real life</strong></summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-804d-ad30-f624a1371f9f" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">Aligning the right move to the moment.
+This is where the window opens.</code></pre></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><strong>SEAL ~ turn the moment into proof</strong></summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-801b-aada-d64a03049a52" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">Capturing a receipt the brain trusts.
+Receipts stack. Identity follows.</code></pre></div></div></details></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><strong>The magic is biological</strong></summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-80db-9284-ef66ad917f12" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">Experience opens the window.
+Recognition creates choice in real time.
+Alignment repeats the micro-loop until it becomes reflex.
+Proof consolidates the new pathway into “I do this now.”
+
+That’s not change. That’s transformation.</code></pre></div></div></details></div><div style="display:contents" dir="auto"><p id="2e25a0fd-01ef-8086-a9a9-f89df2ec9535" class="">
+</p></div><div style="display:contents" dir="auto"><hr id="2e25a0fd-01ef-8092-8186-f1ad795b2bfd"/></div><div style="display:contents" dir="auto"><h1 id="2e25a0fd-01ef-80c0-9cc7-d02535f08e96" class="">The Foundation</h1></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">One Engine</summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-80a9-8e12-e3c53ea7394b" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">Target → Build → Seal
+
+Recovery doesn’t come from inspiration.
+It comes from precision that doesn’t drift.
+
+So we broke recovery down into runnable units —
+without breaking the soul.</code></pre></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Target ~ the clinical spine</summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-80a6-8ab4-c5d0d2515cea" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">Pillars → Concepts → Themes → Schemas → Mindblocks</code></pre></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><strong>Build ~ the component engine</strong><br/></summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-8083-b9db-c2acf0bdd242" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">Modalities · Interactions · Somatic Embodiment
+· Relational Repair · Contemplation · Mechanics</code></pre></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Seal ~ the proof receipt</summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-8011-8c6e-dc8226068907" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">K = Knowing   (recognise, learn, name)
+B = Believing (test, reframe, integrate)
+E = Embodying (act, transfer, prove)</code></pre></div></div></details></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">Framework</summary><div class="indented"><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><strong>PILLARS</strong> <em>&lt;stable domain&gt;</em></summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-80e5-85a3-c66f7493a4b3" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">Emotional Regulation · Stress Resilience · Social Connectivity · Cognitive Reframing · Identity Integration · Decision Mastery
+
+Pillars keep the architecture stable.
+They answer: where in the human system are we building capacity?</code></pre></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><strong>CONCEPTS</strong> <em>&lt;mechanism clusters&gt;</em></summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-80c7-a00d-e81ef654e84b" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">Arousal Regulation · Interoception &amp; Affect Labeling · Attention &amp; Orienting · Inhibitory Control · Reward &amp; Time Horizon · Cognitive Defusion · Meaning &amp; Values Orientation · Self-Compassion &amp; Shame Soothing · Co-Regulation &amp; Attachment Safety · Boundary Mechanics · Narrative Integration · Repair &amp; Reconnection
+
+Concepts keep the science real. 
+They answer: what internal system are we changing?</code></pre></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><strong>THEMES</strong> <em>&lt;trainable skills&gt;</em></summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-8097-86f1-ff6432fc15b8" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">Downshift Under Load · Name the Pattern · Create Choice Space · Urge Surf &amp; Delay · Reframe in Motion · Values Anchor · Self-Compassion in Heat · Boundary Micro-Reps · Connection Micro-Acts · Repair the Moment · Proof Capture · Transfer Testing
+
+Themes make it installable. 
+They answer: what do we practice repeatedly that produces change?
+</code></pre></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><strong>SCHEMAS</strong>  <em>&lt;tuned components&gt;</em></summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-80c5-b717-e602d3369ce3" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">Recognition (K) · Belief Work (B) · Release (B/E) · Repair (E)
+
+Schemas make it specific.
+They answer: why does this keep happening, and what sequence rewires it, from knowing to embodying?</code></pre></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><strong>MODALITIES</strong>  <em>&lt;executable evidence&gt;</em></summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-8048-ba66-ff591fd21aa6" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">IFS · ACT · DBT · CBT · Somatic Experiencing · Motivational Interviewing · EFT
+
+Modalities make it credible.
+They answer: which proven method best matches this targeted moment?</code></pre></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><strong>INTERACTIONS</strong>  <em>&lt;state alignment&gt;</em></summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-80d2-9ffe-c79c5a6af2ac" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">Glance · Seed · Thread · Journey + depth toggles
+
+Interactions make it doable.
+They answer: what can actually hold right now?</code></pre></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><strong>SOMATICS</strong>  <em>&lt;regulation intel&gt;</em></summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-807b-8d84-d9db28e295c9" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">breath · body scanning · grounding · discharge · nervous system state
+
+Somatics make it land.
+They answer: what does the body need to shift before the mind can follow?</code></pre></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">RELATIONAL REPAIRS  <em>&lt;protocols&gt;</em></summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e35a0fd-01ef-8017-ab78-cee836184124" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">rupture → repair · boundaries · amends · trust micro-tests · clean apology
+
+Repair makes it stick.
+They answer: what needs to be repaired for momentum to hold?</code></pre></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><strong>CONTEMPLATIONS  </strong><em><strong>&lt;meaning + inquiry&gt;</strong></em></summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-8047-9cb7-df2623c84434" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">values recall · inquiry prompts · perspective shifts · paradox frames · narrative re-authoring
+
+Wisdom makes it true.
+They answer: what perspective unlocks meaning and softens the old story?</code></pre></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><strong>PROOF</strong>  <em>&lt;receipts&gt;</em></summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-804d-b22e-f87cde078ab4" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">micro-wins · pre/post · vault · review · timeline
+
+Proof makes it believable. 
+They answer: what receipt can we capture now so progress transfers?</code></pre></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><strong>MECHANICS</strong>  <em>&lt;prediction&gt;</em></summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-80dc-806e-c6767b22ac8b" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">future-self · simulation · pattern interrupts · narrative edits
+
+Mechanics make it powerful.
+They answer: what higher-order tool rewires the model, not just the moment?</code></pre></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><strong>MINDBLOCKS</strong>  <em>&lt;atomic unit&gt;</em></summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-805f-9f26-fb4ce3b5bf20" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">When X, I predict Y — so I do Z.
+
+Mindblocks make it executable.
+They answer: what is the smallest prediction we can rewrite, prove, and transfer into real life?</code></pre></div></div></details></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">The Unlock</summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-80af-b5c7-cf6a95cdcd92" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">1) We route the right move — not the right idea.
+   One prediction. One heat band. One primitive.
+
+2) We measure transformation without making it performance.
+   Did it hold — even by 1%?
+   Receipts stack. Identity updates.
+
+3) We make recovery transfer — across real life, and across the three worlds.
+   The same unit that rewires the person becomes:
+   signal for the professional,
+   defensibility for the organisation.
+
+   Same mindblock. Same receipt. Different altitude.</code></pre></div></div></details></div><div style="display:contents" dir="auto"><p id="2e25a0fd-01ef-8096-a24b-d88093c30fbb" class="">
+</p></div><div style="display:contents" dir="auto"><hr id="2e25a0fd-01ef-807f-8478-d1fcca72a43a"/></div><div style="display:contents" dir="auto"><h1 id="2e25a0fd-01ef-800e-8f55-e7b7c46bcd85" class=""><strong>Continuity Engine</strong></h1></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><strong>LUMA is the orchestrator</strong></summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-80db-a9c3-e1bbc0a3dd41" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">This is where the product meets the science.
+
+RecoveryOS is the operating truth.
+LUMA is the way it shows up.</code></pre></div><div style="display:contents" dir="auto"><h3 id="2e25a0fd-01ef-80bc-b961-ede1a9320588" class=""><strong>A feed with a spine</strong></h3></div><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-8055-92ff-e992320e34c3" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">LUMA is the trusted orchestration layer —
+the governed conductor —
+routing interventions inside a coherent clinical spine.
+
+So it always feels:
+relevant · personal · clinically coherent.
+
+Not random.
+Not noisy.
+Not “a feed.”
+
+A feed with a spine.</code></pre></div><div style="display:contents" dir="auto"><h3 id="2e25a0fd-01ef-80de-a105-cec68e737a8c" class=""><strong>You don’t navigate the system. The system meets you.</strong></h3></div><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-8029-9b4c-d55e72d2fa03" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">If the framework is the infrastructure you can build an infinite skyscraper on…
+the platform is the house.
+
+Not just any house.
+Your house.
+
+And the genius is this:
+you don’t have to keep walking room to room.
+
+Because LUMA brings the right room to you —
+at the right time —
+at the right dose.</code></pre></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">The Rooms</summary><div class="indented"><div style="display:contents" dir="auto"><h3 id="2e25a0fd-01ef-80fe-a4f7-de8a6033d497" class=""><strong>The moving parts (rooms with purpose)</strong></h3></div><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-8021-be5c-de832703c486" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">These aren’t “features.”
+They’re rooms — each with a job.
+
+You can enter any room directly.
+But LUMA is what makes them one system.</code></pre></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><strong>Journeys ~ install baseline</strong></summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-803b-8f40-c5050dcbee94" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">Weekly installation cycles.
+Not a curriculum you follow.
+A baseline you install.
+
+So recovery doesn’t depend on willpower.
+It depends on what you’ve already built.</code></pre></div><div style="display:contents" dir="auto"><h3 id="2e35a0fd-01ef-8066-8931-e257530b99f0" class=""><strong>A rhythm the brain can trust</strong></h3></div><div style="display:contents" dir="auto"><pre id="2e35a0fd-01ef-804f-93eb-ff208e768c3b" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">Journeys create familiarity,
+the kind that makes change feel safe enough to repeat.
+
+Same cadence.
+New discovery.
+A steady hand on the wheel.</code></pre></div><div style="display:contents" dir="auto"><h3 id="2e35a0fd-01ef-80ce-988c-c768058d430f" class="">One real-world move</h3></div><div style="display:contents" dir="auto"><pre id="2e35a0fd-01ef-80ad-b870-ecde8a10d12e" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">Small enough to repeat.
+Clear enough to prove.
+Chosen under real conditions,
+so it transfers.
+
+Baseline Builds · Guided Exposures · Pattern Maps · Identity Installs · Alignment Reps · Weekly Receipts</code></pre></div><div style="display:contents" dir="auto"><h3 id="2e35a0fd-01ef-808c-99b6-d75880e9e9b1" class=""><strong>ERA ~ the weekly loop</strong></h3></div><div style="display:contents" dir="auto"><pre id="2e35a0fd-01ef-804b-9474-c29fbfb24fc2" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">Experience → Recognise → Align</code></pre></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><strong>Experience</strong></summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e35a0fd-01ef-80b9-96af-c3423980dcad" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">Body-first.
+State-first.
+A felt shift.
+
+Because new patterns don’t enter through understanding.
+They enter through lived experience.</code></pre></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><strong>Recognise</strong></summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e35a0fd-01ef-806f-91f9-d9f3f90f7eed" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">Name what’s happening while it’s happening.
+
+Not a label.
+A moment of meta-awareness —
+the instant the loop becomes visible.</code></pre></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><strong>Align</strong></summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e35a0fd-01ef-8034-a516-fabf7e93dd37" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">One real-world move.
+
+Small enough to repeat.
+Clear enough to prove.
+Chosen under real conditions —
+so it transfers.</code></pre></div></div></details></div><div style="display:contents" dir="auto"><h3 id="2e35a0fd-01ef-80f4-8f70-e58f51e6fc2e" class="">Identity-level change</h3></div><div style="display:contents" dir="auto"><pre id="2e35a0fd-01ef-8096-a300-ec0ecb293602" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">Journeys generate scheduled proof:
+reflections, scene captures, alignment moves.
+
+Not paperwork.
+Artifacts.
+
+Because transformation needs receipts —
+and receipts need a place to land.</code></pre></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><strong>NaviCues ~ steer the moment</strong></summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-80de-a81a-f6e7d78c98e6" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">Navigational Cues.
+Moment-level steering. JITAI delivery.
+An adaptive cognitive engagement system.
+
+The always-on layer that meets you mid-life —
+and turns the moment into a move.
+
+
+Think:
+Instagram with a brain.
+A newsfeed with purpose.
+A calendar with care.
+A compass with identity.
+Your therapist’s guidance in your pocket.
+
+But governed, not prescribed.</code></pre></div><div style="display:contents" dir="auto"><h3 id="2e25a0fd-01ef-803e-bffd-c24f4dc7bab4" class=""><strong>Mini-apps in the moment</strong></h3></div><div style="display:contents" dir="auto"><pre id="2e35a0fd-01ef-8029-8f94-c6e9b4f1e33d" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">Each NaviCue is a tiny runnable experience.
+
+Cognition Sparks · Pattern Bridges · Story Seeds · Somatic Scans · Value Threads · Proof Stamps
+Statement Mirrors · Belief Probes · Witness Windows · Paradox Keys · Myth Busters · Practice Shards
+
+Not content. Micro-interventions, built to land.
+</code></pre></div><div style="display:contents" dir="auto"><h3 id="2e35a0fd-01ef-8076-94f7-ebe95013d0d0" class=""><strong>One move. One contract.</strong></h3></div><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-8017-ac86-d08e7715e0c3" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">Every NaviCue is one move:
+
+one target (schema / family / mindblock)
+one mechanism
+one primary primitive
+one heat-band suitability
+one intent
+one proof request (even tiny)
+
+That’s how we avoid noise.
+That’s how we prevent drift.
+That’s how we keep integrity.</code></pre></div><div style="display:contents" dir="auto"><h3 id="2e35a0fd-01ef-805e-bf03-f7caef19b23f" class=""><strong>Surprise inside safe rails</strong></h3></div><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-80ca-a20f-d75159283471" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">We throw a curveball deliberately.
+Because novelty earns attention.
+
+But it’s novelty inside safe rails.
+Not chaos.
+Precision.</code></pre></div><div style="display:contents" dir="auto"><h3 id="2e35a0fd-01ef-8044-a353-c0c9b6e22daf" class="">Clinical clarity</h3></div><div style="display:contents" dir="auto"><pre id="2e35a0fd-01ef-80de-8a8f-ec9169f87626" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">NaviCues are neuroplastic atoms:
+small enough to run under heat,
+real enough to rewire.
+
+They don’t ask for a new life.
+They install a new default —
+one moment at a time.</code></pre></div><div style="display:contents" dir="auto"><h3 id="2e35a0fd-01ef-80a0-a912-f95f607cdf43" class="">Symbiotic cohesion </h3></div><div style="display:contents" dir="auto"><pre id="2e35a0fd-01ef-80d3-9281-eb05feadd565" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">Journeys install baseline.
+NaviCues steer the moment.
+
+Journeys build the pathway.
+NaviCues test it in the wild.
+
+Same OS.
+Two tempos.
+One result: the new default holds.</code></pre></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><strong>Toolkit ~ meaning on demand</strong></summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-80ef-bf7a-e87de4908133" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">The library - not the engine.
+
+Articles (the calm line through it)
+Insights (context and depth, if you want to go further)
+Practices (standalone components that can appear anywhere)
+Bag (save what matters for your journey)
+
+Toolkit gives meaning and range.
+LUMA gives timing and dose.</code></pre></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><strong>Wellbeing ~ nervous-system first</strong></summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-8090-b05b-f7da3c381202" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">Bespoke series ~ not a YouTube dump.
+
+Breath. Meditation. Fitness. Nourishment.
+Consistent guides. Familiarity. Trust.
+
+And once you tag, like, schedule,
+LUMA can orchestrate it:
+morning meditation, afternoon movement, night breathwork…
+
+Because recovery begins in the nervous system.
+</code></pre></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><strong>State ~ the heartbeat</strong></summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-80dc-ad6f-e67472834847" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">Energy (activation)
+Clarity (cognitive function)
+Anchorage (emotional stability)
+
+State doesn’t exist to track you.
+It exists to route you.
+
+And LUMA doesn’t demand data.
+It asks when it needs a data point —
+so the flow stays human.</code></pre></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">The Player</summary><div class="indented"><div style="display:contents" dir="auto"><h3 id="2e25a0fd-01ef-8007-8aa8-ff802b019ac8" class=""><strong>One universal player</strong></h3></div><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-80ee-a27b-e2415f121738" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">This is the Apple part.
+
+Everything runs on the same universal cue system and player.
+
+Journeys and NaviCues aren’t different worlds.
+They’re the same OS delivering in two contexts:
+weekly installation
+moment steering
+
+And every other room becomes callable atoms —
+governed, coherent, right-sized —
+routed by LUMA into the flow.</code></pre></div><div style="display:contents" dir="auto"><h3 id="2e25a0fd-01ef-80b8-81f3-f957a3513887" class=""><strong>Seamless becomes inevitable</strong></h3></div><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-80d9-a220-df89d1714a67" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">One system.
+Many rooms.
+One conductor.
+
+That’s how it becomes seamless.
+That’s how it becomes inevitable.</code></pre></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">The Interface</summary><div class="indented"><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><strong>LUMA Play ~ backstory that installs identity</strong></summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-80e0-8ae0-eb09dbb448ff" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">A living library of spiritual backstory —
+not scientific explanation.
+
+Sparks (10–20 seconds)
+Flames (150–200 words)
+Embers (60–180 seconds)
+
+Identity installation.
+Not ideology.
+Not fluff.
+
+As someone grows, the soundtrack evolves.
+The backstory changes.
+The mind stops telling the same old myth.
+
+That’s momentum at the soul layer.</code></pre></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><strong>LUMA Talk ~ guided, not open chat</strong></summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-8044-8f96-e7579bb1be68" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">Not an open chatbot.
+
+A guided conversational corridor:
+we listen — but we lead with dynamic prompts.
+
+Because recovery conversations don’t need endless text.
+They need the next right step.
+
+Prompt → signal → route → move → receipt.
+</code></pre></div></div></details></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">Safety</summary><div class="indented"><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><strong>Support network and escalation</strong></summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-80cb-9a1f-e8b5a12263a3" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">An SOS button isn’t a feature.
+It’s infrastructure.
+
+When heat is high and drift is accelerating, the system can:
+tighten dose
+switch primitive
+route a stabilising sequence
+bring in the right human —
+by consent, by protocol, by support graph.
+
+Again: not failure.
+Design.</code></pre></div></div></details></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">Integrations</summary><div class="indented"><div style="display:contents" dir="auto"><h3 id="2e25a0fd-01ef-80be-9b36-d2fb76a52139" class=""><strong>Recovery in the flow of life</strong></h3></div><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-8012-9f36-c643e752c7de" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">Recovery doesn’t need another destination.
+It needs to run inside the day you already live.
+
+So RecoveryOS plugs into your world —
+not as surveillance,
+as context.</code></pre></div><div style="display:contents" dir="auto"><h3 id="2e25a0fd-01ef-8093-96bf-dd4d63ca284f" class=""><strong>Signals in. Missed moments out.</strong></h3></div><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-80cb-8671-cdfc8089e0e9" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">Wearables · health signals
+Sleep · schedule
+Meetups · support groups
+Your people · your flow
+
+Because the goal isn’t more data.
+It’s fewer missed moments.</code></pre></div><div style="display:contents" dir="auto"><h3 id="2e25a0fd-01ef-8086-b6b2-e7cd3d6a70a8" class=""><strong>What integrations give LUMA</strong></h3></div><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-80ea-8cae-d7269c58852b" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">heat · readiness · resistance · biological load · timing
+
+So LUMA can grade the moment,
+route the dose,
+and guide with intimate accuracy —
+still quiet by default,
+still consent-bound.</code></pre></div><div style="display:contents" dir="auto"><h3 id="2e25a0fd-01ef-80df-bd2c-c17768ee457c" class=""><strong>And the point of it all</strong></h3></div><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-803b-a2a9-d3ae28e872d8" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">LUMA doesn’t make recovery louder.
+It makes it continuous.
+
+The system meets you where life happens —
+and turns the moment into a move.</code></pre></div></div></details></div><div style="display:contents" dir="auto"><p id="2e25a0fd-01ef-8094-869b-e93a425de827" class="">
+</p></div><div style="display:contents" dir="auto"><hr id="2e25a0fd-01ef-80e9-89bb-c38bfcbd3e8b"/></div><div style="display:contents" dir="auto"><h1 id="2e25a0fd-01ef-80c5-b49f-f5ab9356c367" class="">A Symbiotic Ecosystem</h1></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">One OS. Three worlds.</summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-80e3-bbff-ff90cd7aa03d" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">This isn’t one product with add-ons.
+It’s one operating truth running at three altitudes —
+because recovery doesn’t live in one place.
+
+It lives in a person.
+Across a relationship.
+Inside a system.
+
+Individual.
+Professional.
+Organisation.
+
+One spine.
+Three vantage points.</code></pre></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><strong>Companion ~ stay oriented</strong></summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-8032-9f3f-f35b12045a98" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">Individual.
+
+Companion is where recovery becomes usable.
+Not in theory.
+In the seconds that decide the day.
+
+Quiet orientation.
+Right-sized moves.
+Proof you can feel — and keep.
+
+So the person isn’t “trying to recover.”
+They’re running a system that holds them
+when their biology doesn’t.</code></pre></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">Console ~ your work, extended</summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-80e6-86b7-dc0fd245d3b5" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">Individual.
+Professional.
+
+Console is where care becomes continuous.
+Your work — extended into real life.
+
+Not more messages.
+Not more admin.
+Just clean signal:
+
+what happened,
+what was routed,
+what held under load,
+what needs attention next.
+
+Closed-loop support between sessions.
+Signal without noise.
+Escalation without chaos.
+</code></pre></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><strong>Command Center ~ continuity, built in</strong></summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-8082-9a73-e0de1ef52ebf" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">Individual.
+Professional.
+Organisation.
+
+Command Center is where recovery becomes infrastructure.
+Continuity — built in.
+
+It holds outside the building:
+between shifts,
+between sessions,
+between handovers,
+between discharge and real life.
+
+Governed delivery.
+Consent-native.
+Auditable integrity.
+
+Not bureaucracy.
+Defensibility you can stand behind.</code></pre></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">Symbiotic Travel</summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-80e6-84fb-c2e012f6c356" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">This is the point most systems never reach.
+
+One lived moment becomes a receipt —
+and that receipt travels up the spine:
+
+For the person: identity reinforcement.
+For the clinician: clinically coherent signal.
+For the organisation: defensible continuity.
+
+Same receipt.
+Three meanings.
+One spine.
+
+That’s how recovery transfers.
+That’s how results compound.</code></pre></div></div></details></div><div style="display:contents" dir="auto"><p id="2e25a0fd-01ef-80ba-be4e-cd6adc25a3e9" class="">
+</p></div><div style="display:contents" dir="auto"><hr id="2e25a0fd-01ef-80bf-a6a9-eb07e7329421"/></div><div style="display:contents" dir="auto"><h1 id="2e25a0fd-01ef-80ad-ba59-e6c0f629ae60" class=""><strong>Scalable Trust</strong></h1></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><strong>Sentient Baseline</strong></summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-807a-8241-c38cc6fe59b2" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">Support should feel like relief —
+not pressure.
+
+No flood.
+No performance.
+No noise.
+
+Most systems treat trust like a promise.
+We treat trust like design.
+
+Because recovery only works
+when it feels safe enough to use
+in real moments.</code></pre></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><strong>Consent by design</strong></summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-8063-bcf8-f43f33a91d44" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">You choose how the system shows up.
+When it speaks.
+What it sees.
+Who it can reach.
+How it escalates.
+
+Because autonomy isn’t a feature.
+It’s the safety layer.</code></pre></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><strong>Dignity by definition</strong></summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-80d8-bff1-ce515032fcc2" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">Without dignity, there is no honesty.
+Without honesty, there is no signal.
+
+So we protect dignity first,
+because dignity is what makes the system usable.</code></pre></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><strong>Appropriateness is safety</strong></summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-809b-b712-f8d4a314690d" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">Right dose.
+Right tone.
+Right time.
+
+The wrong delivery becomes harm —
+even if the content is “good.”</code></pre></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><strong>Human boundary</strong></summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-8072-ac05-f35db13d7e24" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">Infrastructure carries the relationship.
+It doesn’t replace it.
+
+When the moment needs a person,
+we bring a person —
+cleanly, by consent, by protocol.</code></pre></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><strong>Trust is verifiable</strong><br/></summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-8006-b7b3-cb082877b62f" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">Trust isn’t vibes.
+It’s receipts.
+
+So RecoveryOS carries:
+quiet hours
+cadence rules
+consent adherence
+auditable delivery logs
+escalation protocols you can defend
+
+A system you can trust —
+because it knows its boundaries.</code></pre></div></div></details></div><div style="display:contents" dir="auto"><p id="2e25a0fd-01ef-80a6-bd1b-e89ee484dd93" class="">
+</p></div><div style="display:contents" dir="auto"><hr id="2e25a0fd-01ef-8007-9417-fef61450d24f"/></div><div style="display:contents" dir="auto"><h1 id="2e25a0fd-01ef-80e3-9e65-d62232802c8c" class=""><strong>Governance</strong></h1></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">Stability</summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-8068-83e5-edb7fab71bb1" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">LOCKED: pillars · primitives · KBE · Sparks/Flames/Embers
+CONTROLLED: concepts · themes · schemas
+EXPANDABLE: families · mindblocks · voice · approach variants</code></pre></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><strong>Labels evolve. IDs don’t.</strong></summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-80b7-a6b6-ef32bc48ef20" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">Language can evolve.
+The spine stays stable.
+
+IDs do not change.
+Deprecation maps forward.
+Proof remains valid.</code></pre></div></div></details></div><div style="display:contents" dir="auto"><p id="2e25a0fd-01ef-806b-9379-f3bb6d468de4" class="">
+</p></div><div style="display:contents" dir="auto"><hr id="2e25a0fd-01ef-801a-b443-cb8d277b3f48"/></div><div style="display:contents" dir="auto"><h1 id="2e25a0fd-01ef-805e-8881-c27cbb8b551b" class="">Visibility</h1></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">Identity level</summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-8020-9034-c982bfd5de87" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">Belief is fragile.
+Proof isn’t.
+
+So we stack micro-receipts
+until identity updates.
+
+Not performative.
+Not gamified.
+Real.</code></pre></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">Signals</summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-8094-bda8-eccfd651942a" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">Not engagement. Signal.
+
+Proof is attached to:
+state
+aim
+dose
+target
+and what held under pressure
+
+So clinicians aren’t doing archaeology.
+They’re seeing the pattern move.
+</code></pre></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><strong>Signal / Receipt Spec</strong></summary><div class="indented"><div style="display:contents" dir="auto"><pre class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">Receipt ID · Mindblock ID · Journey ID
+State · Aim · Dose · Target · Held-under-pressure note
+Pre · Post · Timestamp · Location/room · Agent (human/system)
+Provenance: consent mode · cadence rule · escalation rule version
+Outcome: micro-proof decision (held? degraded? failed?) and what transfers next</code></pre></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">Defensible</summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-8003-8b92-f87e4394cb66" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">Continuity you can stand behind:
+
+momentum curves
+integrity logs
+consent adherence
+escalation adherence
+delivery reliability
+
+Defensibility isn’t bureaucracy.
+It’s safety at scale.
+</code></pre></div></div></details></div><div style="display:contents" dir="auto"><h3 id="review-checklist" class=""><strong>Operational Review Checklist</strong></h3></div><div style="display:contents" dir="auto"><pre class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">Consent: mode set + cadence rule applied.
+State: captured pre-move; heat band defined.
+Move: primitive chosen with dose/target; appropriateness check passed.
+Proof: pre/post captured; receipt ID + mindblock ID logged.
+Transfer: receipt routed to the right room; provenance intact.
+Safety: escalation protocol ready; human boundary respected.</code></pre></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">One Truth</summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-80b9-8a8c-e5ccca3d2810" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">This is auditable integrity
+that travels with the person.
+
+One operating truth —
+so recovery transfers,
+and results compound.</code></pre></div></div></details></div><div style="display:contents" dir="auto"><p id="2e25a0fd-01ef-807c-a9c7-f4345ec15842" class=""></p></div><div style="display:contents" dir="auto"><h1 id="glossary" class=""><strong>Glossary</strong></h1></div><div style="display:contents" dir="auto"><pre class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">Pillars — stable domains we build capacity in (regulation, resilience, connectivity, reframing, identity, decisions).
+Concepts — mechanism clusters we are tuning (arousal, interoception, attachment safety, reward horizon, etc.).
+Themes — trainable skills we repeat to install change (downshift, urge surf, proof capture, transfer testing).
+Schemas — tuned sequences for a pattern family (recognition → belief work → release/repair).
+Mindblocks — the atomic prediction unit: when X, I predict Y, so I do Z (rewrite + prove under load).
+NaviCues — moment-level micro-interventions, one move with dose/heat bounds and a proof request.
+Journeys — weekly installation cycles that build baseline pathways (Experience → Recognise → Align reps).
+ERA loop — the weekly rhythm that makes proof feel safe and repeatable.
+LUMA — the orchestration layer routing the right primitive, dose, and timing across rooms.
+Proof/receipts — stacked micro-wins and pre/post captures that update identity and feed signal to clinicians.
+State — the routing heartbeat (energy, clarity, anchorage) that guides when and how we intervene.</code></pre></div><div style="display:contents" dir="auto"><hr id="2e25a0fd-01ef-8069-b1bc-ca7c3556a5a4"/></div><div style="display:contents" dir="auto"><h1 id="2e25a0fd-01ef-8071-af8f-ddce1806142a" class="">One Operating Truth</h1></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">The way</summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-8092-89e7-fc5a19ff8b50" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">RecoveryOS is a neuroadaptive operating system
+that turns recovery into change —
+by routing lived experience, in real time,
+until new pathways become default.</code></pre></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">The essence</summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-8055-a55f-eda4e0462ec0" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">Not a platform.
+Not content.
+Not AI.
+
+A living delivery system for rewiring —
+with a spine.</code></pre></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">The philosophy</summary><div class="indented"><div style="display:contents" dir="auto"><pre id="2e25a0fd-01ef-80f0-8f3c-e95579efcd50" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">Quietly.
+Safely.
+Provably.
+
+In the moments that matter.</code></pre></div></div></details></div><div style="display:contents" dir="auto"><p id="2e25a0fd-01ef-809c-9124-dcc34b1d8920" class="">
+</p></div><div style="display:contents" dir="auto"><hr id="2e25a0fd-01ef-80e0-b3f8-c0705b2752da"/></div><div style="display:contents" dir="auto"><p id="2e25a0fd-01ef-8054-be12-c4bc826fff14" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

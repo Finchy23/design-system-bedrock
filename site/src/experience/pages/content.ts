@@ -2,65 +2,65 @@ import { HeroContent, LoopContent, ProofContent, SimpleBlock, CtaContent, WorldS
 
 export const homeContent = {
   hero: {
-    title: 'Recovery — now runs in real life.',
-    subtitle: 'A living layer that reads the moment, routes the right move, and proves it held.',
-    primaryCta: { label: 'Choose your world' },
-    secondaryCta: { label: 'See how it works', variant: 'secondary' }
+    title: 'Quiet, safe, provable change — in motion.',
+    subtitle: 'State check → cue surfaces → move with heat band → proof request (pre/post) → receipt logs → clinician sees state/aim/dose/target + hold-under-pressure note.',
+    primaryCta: { label: 'Start the loop' },
+    secondaryCta: { label: 'View receipts spec', variant: 'secondary' }
   } satisfies HeroContent,
   loop: {
-    title: 'READ → ROUTE → DELIVER → SEAL.',
-    subtitle: 'State-first. Appropriate dose. Delivered in the right voice. Sealed with proof.'
+    title: 'Sense → Route → Deliver → Seal.',
+    subtitle: 'State-first, heat-aware, consent-bound. Right primitive, dose, and timing. Proof request fired, receipt logged.'
   } satisfies LoopContent,
   proof: {
     stage: 'trajectory',
-    title: 'Receipt → Transfer → Trajectory.',
-    subtitle: 'North star: MTTR — Mean Time To Return. Return speed is the skill.'
+    title: 'Proof that travels.',
+    subtitle: 'Receipt → Transfer → Trajectory. MTTR and held-under-pressure notes become the narrative.'
   } satisfies ProofContent,
   dataDignity: {
     title: 'Quiet by default. Consent by design.',
-    bullets: ['No urgency theatre or streak pressure.', 'Support feels like relief, not noise.']
+    bullets: ['No urgency theatre or streak pressure.', 'Proof without punishment; receipts reinforce return.', 'Cadence and quiet hours honored.']
   } satisfies SimpleBlock,
   escalation: {
     title: 'Humans when humans matter.',
-    subtitle: 'When the loop doesn’t hold: change dose → change target → bring in a human → safety rails.',
+    subtitle: 'When the loop doesn’t hold: change delivery → change target → bring in a human → safety rails.',
     ctaLabel: 'Contact support'
   },
   worldSelector: {
     title: 'Choose your world',
     subtitle: 'Companion (Individual) · Console (Professional) · Command Center (Organisation)',
     cards: [
-      { key: 'ind', title: 'Companion', body: 'Stay oriented. The moment layer that meets drift.', ctaLabel: 'Start with Companion' },
-      { key: 'pro', title: 'Console', body: 'Your work — extended between sessions.', ctaLabel: 'Explore the Console' },
-      { key: 'org', title: 'Command Center', body: 'Continuity you can defend.', ctaLabel: 'See the Command Center' }
+      { key: 'ind', title: 'Companion', body: 'Stay oriented. Cue → Move → Receipt. Return history (MTTR).', ctaLabel: 'Start with Companion' },
+      { key: 'pro', title: 'Console', body: 'Your work — extended. Mindblock Studio, Contract Compiler, Escalation queue.', ctaLabel: 'Explore the Console' },
+      { key: 'org', title: 'Command Center', body: 'Continuity you can defend. Cohort MTTR, transfer verification, integrity logs.', ctaLabel: 'See the Command Center' }
     ]
   } satisfies WorldSelectorContent,
   cta: {
     title: 'Recovery — now runs in real life.',
-    body: 'Built for timing. Proof without punishment. Humans when humans matter.',
-    primaryLabel: 'Choose your world',
-    secondaryLabel: 'See how it works'
+    body: 'State-aware, governed, proof-first. Humans when humans matter.',
+    primaryLabel: 'Start the loop',
+    secondaryLabel: 'View receipts spec'
   } satisfies CtaContent
 };
 
 export const howItWorksContent = {
   hero: {
     title: 'Built for timing.',
-    subtitle: 'The right thing at the right time, in the right dose — with proof.',
-    primaryCta: { label: 'See how it works' },
-    secondaryCta: { label: 'Talk to us', variant: 'secondary' }
+    subtitle: 'Sense → Route → Deliver → Seal. State-first conduction with appropriateness guardrails.',
+    primaryCta: { label: 'Start the loop' },
+    secondaryCta: { label: 'View receipts spec', variant: 'secondary' }
   } satisfies HeroContent,
   loop: {
-    title: 'READ → ROUTE → DELIVER → SEAL.',
-    subtitle: 'READ: state/readiness/resistance. ROUTE: target + dose. DELIVER: Journeys + NaviCues with LUMA. SEAL: Action → Receipt → Transfer → Trajectory; MTTR tracked.'
+    title: 'Sense → Route → Deliver → Seal.',
+    subtitle: 'Sense: state/readiness/resistance. Route: target + dose + primitive. Deliver: Journeys + NaviCues with LUMA. Seal: proof request → receipt → transfer.'
   } satisfies LoopContent,
   proof: {
     stage: 'trajectory',
-    title: 'Proof as currency.',
+    title: 'Proof that travels.',
     subtitle: 'Action → Receipt → Transfer → Trajectory. Proof without punishment; identity changes from evidence.'
   } satisfies ProofContent,
   luma: {
     title: 'LUMA — Orchestration you can trust.',
-    bullets: ['State-first conduction with “why this, why now”.', 'Deterministic escalation when resistance persists.']
+    bullets: ['State-read with heat/readiness/resistance.', '“Why this, why now” in one line.', 'Deterministic escalation when resistance persists.']
   } satisfies SimpleBlock,
   dataDignity: {
     title: 'Data dignity.',
@@ -73,8 +73,8 @@ export const howItWorksContent = {
   },
   cta: {
     title: 'Recovery — now runs in real life.',
-    body: 'Built for timing. Governed. Explainable. Measurable.',
-    primaryLabel: 'Talk to us',
+    body: 'Sense → Route → Deliver → Seal. Governed. Explainable. Measurable.',
+    primaryLabel: 'Start the loop',
     secondaryLabel: 'See Proof'
   } satisfies CtaContent
 };
@@ -82,7 +82,7 @@ export const howItWorksContent = {
 export const proofContent = {
   hero: {
     title: 'Proof, without punishment.',
-    subtitle: 'Receipts that reinforce return — until change holds.',
+    subtitle: 'Receipts that reinforce return — until change holds. MTTR is gravity.',
     primaryCta: { label: 'See Proof' },
     secondaryCta: { label: 'Talk to us', variant: 'secondary' }
   } satisfies HeroContent,
@@ -90,7 +90,7 @@ export const proofContent = {
     stage: 'trajectory',
     title: 'Receipt → Transfer → Trajectory.',
     subtitle: 'Receipt: evidence the move happened. Transfer: evidence it held in life. Trajectory: evidence it’s becoming default.',
-    bullets: ['North star: MTTR — return gets faster; baseline steadies.', 'When progress is visible, it becomes livable. Proof is reinforcement, not ranking.']
+    bullets: ['North star: MTTR and held-under-pressure.', 'Proof is reinforcement, not ranking. Receipts travel across rooms.']
   } satisfies ProofContent,
   cta: {
     title: 'Recovery — now runs in real life.',
@@ -102,8 +102,8 @@ export const proofContent = {
 
 export const technologyContent = {
   hero: {
-    title: 'Built for timing.',
-    subtitle: 'Innovation that feels simple — because it’s appropriate.',
+    title: 'LUMA — trusted orchestration.',
+    subtitle: 'State-read → Route → Deliver → Seal. Apple-like universal player with governed cues.',
     primaryCta: { label: 'See how it works' },
     secondaryCta: { label: 'Talk to us', variant: 'secondary' }
   } satisfies HeroContent,
@@ -113,7 +113,7 @@ export const technologyContent = {
   } satisfies LoopContent,
   luma: {
     title: 'LUMA vow.',
-    bullets: ['Governed intelligence inside the spine.', 'Why this, why now — in one line. Appropriate, not improvised.']
+    bullets: ['Governed intelligence inside the spine.', 'Why this, why now — in one line.', 'Appropriate, not improvised.']
   } satisfies SimpleBlock,
   dataDignity: {
     title: 'Trust boundary.',
@@ -130,7 +130,7 @@ export const technologyContent = {
 export const trustContent = {
   hero: {
     title: 'Trust, by design.',
-    subtitle: 'Recovery only works when it feels safe enough to use in real moments.',
+    subtitle: 'Safety-first. Consent by design. Quiet by default. Proof without punishment.',
     primaryCta: { label: 'Read the vow' },
     secondaryCta: { label: 'Talk to us', variant: 'secondary' }
   } satisfies HeroContent,

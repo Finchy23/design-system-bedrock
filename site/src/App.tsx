@@ -1,12 +1,12 @@
 import React from 'react';
 import SiteLayout from './layout/SiteLayout';
-import { HomePage } from './experience/pages/HomePage';
 import { HowItWorksPage } from './experience/pages/HowItWorksPage';
 import { ProofPage } from './experience/pages/ProofPage';
 import { TechnologyPage } from './experience/pages/TechnologyPage';
 import { TrustPage } from './experience/pages/TrustPage';
 import { ChooseWorldPage } from './experience/pages/ChooseWorldPage';
 import { WorldPage } from './experience/pages/WorldPage';
+import { RecoveryDocPage } from './experience/pages/RecoveryDocPage';
 import {
   homeContent,
   howItWorksContent,
@@ -43,15 +43,7 @@ const navItems = [
 const routeConfig: Record<RouteKey, { render: () => JSX.Element; meta: { title: string; description: string } }> = {
   home: {
     render: () => (
-      <HomePage
-        hero={homeContent.hero}
-        loop={homeContent.loop}
-        proof={homeContent.proof}
-        dataDignity={homeContent.dataDignity}
-        escalation={homeContent.escalation}
-        worldSelector={homeContent.worldSelector}
-        cta={homeContent.cta}
-      />
+      <RecoveryDocPage />
     ),
     meta: { title: 'Recovery OS — Home', description: homeContent.hero.subtitle }
   },
@@ -59,27 +51,19 @@ const routeConfig: Record<RouteKey, { render: () => JSX.Element; meta: { title: 
     render: () => (
       <HowItWorksPage
         hero={howItWorksContent.hero}
-        loop={howItWorksContent.loop}
-        proof={howItWorksContent.proof}
-        luma={howItWorksContent.luma}
-        dataDignity={howItWorksContent.dataDignity}
-        escalation={howItWorksContent.escalation}
         cta={howItWorksContent.cta}
       />
     ),
     meta: { title: 'Recovery OS — How it works', description: howItWorksContent.hero.subtitle }
   },
   proof: {
-    render: () => <ProofPage hero={proofContent.hero} proof={proofContent.proof} cta={proofContent.cta} />,
+    render: () => <ProofPage hero={proofContent.hero} cta={proofContent.cta} />,
     meta: { title: 'Recovery OS — Proof', description: proofContent.hero.subtitle }
   },
   tech: {
     render: () => (
       <TechnologyPage
         hero={technologyContent.hero}
-        loop={technologyContent.loop}
-        luma={technologyContent.luma}
-        dataDignity={technologyContent.dataDignity}
         cta={technologyContent.cta}
       />
     ),
