@@ -9,9 +9,9 @@ How to update
 - Keep the top-level categories: `color`, `type`, `space`, `surface`, `shadow`, `motion`.
 - Add brand palette keys under `color.brand` only. Avoid raw hex usage outside tokens.
 
-Figma export
-- A simple exported mapping is available at `src/tokens/figma-tokens.json` for import into token plugins.
-- For production, use a token management tool (Style Dictionary, tokens-studio) to generate platform assets.
+Design export
+- Export mappings can be generated from `src/tokens/tokens.json` for design-tool imports.
+- For production, use a token management tool (Style Dictionary, Tokens Studio) to generate platform assets.
 
 Validation
 - Run the token lint script:
